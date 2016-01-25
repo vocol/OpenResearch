@@ -1,0 +1,261 @@
+# Saved by TopBraid on Sat Jan 23 00:16:41 CET 2016
+# baseURI: http://vocab.cs.uni-bonn.de/or#
+# imports: http://www.ontologydesignpatterns.org/cp/owl/participation.owl#
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix foaf:    <http://xmlns.com/foaf/spec/> .
+@prefix or:      <http://vocab.cs.uni-bonn.de/or#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix participation:  <http://www.ontologydesignpatterns.org/cp/owl/participation.owl#> .
+@prefix pr:      <http://www.ontology.se/odp/content/owl/ParticipantRole> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix situation:  <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#> .
+@prefix swc:     <http://data.semanticweb.org/ns/swc/ontology/> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+swc:BreakEvent
+      rdf:type owl:Class ;
+      rdfs:subClassOf participation:Event .
+
+swc:WorkshopEvent
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:ScientificEvent .
+
+or:   rdf:type owl:Ontology ;
+      owl:imports <http://www.w3.org/2004/02/skos/core> , participation: .
+
+or:Academia
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:Sector .
+
+or:Author
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:Role .
+
+or:Award
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Conference
+      rdf:type owl:Class ;
+      rdfs:label "Conference"@en ;
+      rdfs:subClassOf or:ScientificEvent .
+
+or:Document
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Edition
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Format
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:HomePage
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Identity
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Industry
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:Sector .
+
+or:Journal
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:OrganizationRole .
+
+or:Location
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:OrganizationRole
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:PCMember
+      rdf:type owl:Class ;
+      rdfs:label "customGroupName"^^xsd:string ;
+      rdfs:subClassOf or:Role .
+
+or:Publication
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:Document .
+
+or:Publisher
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:OrganizationRole .
+
+or:Registration
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Reputation
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Review
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:Document .
+
+or:Role
+      rdf:type owl:Class ;
+      rdfs:comment "A concept that classifies an object."@en ;
+      rdfs:label "Role"@en .
+
+or:Schedule
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:ScientificEvent
+      rdf:type owl:Class ;
+      rdfs:label "Scientific Event"@en ;
+      rdfs:subClassOf participation:Event .
+
+or:Sector
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Session
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Speaker
+      rdf:type owl:Class .
+
+or:Sponsor
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:OrganizationRole .
+
+or:Subject
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:Submission
+      rdf:type owl:Class ;
+      rdfs:subClassOf or:Document .
+
+or:Type
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+or:belongToSector
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain foaf:Person ;
+      rdfs:range or:Sector .
+
+or:hasAcronym
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain or:Identity ;
+      rdfs:range xsd:string .
+
+or:hasAuthor
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:Document ;
+      rdfs:range or:Author .
+
+or:hasEdition
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain or:Identity ;
+      rdfs:range or:Edition .
+
+or:hasFormat
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:Document ;
+      rdfs:range or:Format .
+
+or:hasIdentity
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:ScientificEvent ;
+      rdfs:range or:Identity .
+
+or:hasLocation
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:ScientificEvent ;
+      rdfs:range or:Location .
+
+or:hasName
+      rdf:type owl:DatatypeProperty ;
+      rdfs:domain or:Identity ;
+      rdfs:range xsd:string .
+
+or:hasReputation
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain foaf:Organization ;
+      rdfs:range or:Reputation .
+
+or:hasSchedule
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:ScientificEvent ;
+      rdfs:range or:Schedule .
+
+or:hasSubject
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:ScientificEvent ;
+      rdfs:range or:Subject .
+
+or:hasType
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:Document ;
+      rdfs:range or:Type .
+
+or:homePage
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:Identity ;
+      rdfs:range or:HomePage .
+
+or:isAward
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:ScientificEvent ;
+      rdfs:range or:Award .
+
+or:isSchedule
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain swc:BreakEvent ;
+      rdfs:range or:Schedule .
+
+or:organizationRole
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain foaf:Organization ;
+      rdfs:range or:OrganizationRole .
+
+or:register
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain or:ScientificEvent ;
+      rdfs:range or:Registration .
+
+participation:Event
+      rdf:type owl:Class ;
+      rdfs:comment "Any physical, social, or mental process, event, or state."@en ;
+      rdfs:label "Event"@en ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:onProperty participation:hasParticipant ;
+                owl:someValuesFrom participation:Object
+              ] ;
+      owl:disjointWith participation:Object .
+
+participation:Object
+      rdf:type owl:Class ;
+      rdfs:comment "Any physical, social, or mental object, or substance "@en ;
+      rdfs:label "Object"@en .
+
+participation:hasParticipant
+      rdf:type owl:ObjectProperty ;
+      rdfs:domain participation:Event ;
+      rdfs:label "has participant"@en ;
+      rdfs:range participation:Object .
+
+foaf:Organization
+      rdf:type owl:Class ;
+      rdfs:subClassOf participation:Object .
+
+foaf:Person
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
